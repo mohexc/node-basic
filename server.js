@@ -1,15 +1,13 @@
 const express = require('express')
 const dotenv = require('dotenv')
+const logger = require('./middleware/logger')
 const bootcapms = require('./routes/bootcamps')
 
 dotenv.config({ path: "./config/config.env" })
 
 const app = express()
 
-const logger = (req, res, next) => {
-    console.log(`${req.protocol}://${req.get("host")}${req.originalUrl}`)
-    next()
-}
+
 
 app.use(logger)
 
