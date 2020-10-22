@@ -7,8 +7,7 @@ dotenv.config({ path: "./config/config.env" })
 const app = express()
 
 const logger = (req, res, next) => {
-    req.hello = "hello world"
-    console.log('Middleware ran')
+    console.log(`${req.protocol}://${req.get("host")}${req.originalUrl}`)
     next()
 }
 
